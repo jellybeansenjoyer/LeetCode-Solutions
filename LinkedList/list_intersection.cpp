@@ -1,23 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        vector<int> v1,v2;
-        ListNode* f1 = headA,f2 = headB;
-        while(f1!=NULL){
-            v1.push_back(f1->val)
-            f1 = f1->next;
+    while(headA!=NULL){
+        headA->val=-9999;
+        headA=headA->next;
+    }
+    while(headB!=NULL){
+        if(headB->val==-9999){
+            return headB;
         }
-        while(f2!=NULL){
-            v2.push_back(f2->val)
-            f2=f2->next;
-        }    
-        sort(v1.begin(),v1.end(),greater<int>())
-        sort(v2.begin(),v2.end(),greater<int>())
-        for(auto i = v1.begin(),j = v2.begin();i!=v1.end(),j!=v2.end();i++,h++){
-            if(*i!=*j)
-                break;
-        }
-        if(i==v1.begin()){
-            
-        }
+        headB = headB->next;
+    }
+    return false;
 }
